@@ -2,6 +2,13 @@
 * {
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-image: $HoverBorder;
+}
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: $FontSize;

@@ -3,6 +3,16 @@
           box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background-image: linear-gradient(to right bottom, #57ddff, #c058f3);
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
@@ -256,7 +266,7 @@ body.sun .todo-app .theme {
   letter-spacing: 1px;
   -webkit-animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  cursor: move;
+  cursor: pointer;
 }
 
 @-webkit-keyframes scale-in-ver-bottom {
