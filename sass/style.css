@@ -1,0 +1,417 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  background-color: #161722;
+  color: #e4e5f1;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+body.sun {
+  background-color: #fafafa;
+}
+
+body.sun .todo-app {
+  background-image: url("../imgs/bg-desktop-light.jpg");
+}
+
+body.sun .todo-app .info .input {
+  background-color: #fafafa;
+}
+
+body.sun .todo-app .info .input div span {
+  border-color: #b2adc7;
+}
+
+body.sun .todo-app .info .input input {
+  background-color: #fafafa;
+  color: #4f5060f0;
+}
+
+body.sun .todo-app .info .list {
+  background-color: #fafafa;
+  color: #4f5060f0;
+}
+
+body.sun .todo-app .info .list .list-div {
+  border-bottom-color: #b2adc78c;
+}
+
+body.sun .todo-app .info .list .list-div .span-check {
+  border-color: #b2adc78c;
+}
+
+body.sun .todo-app .info .list .control-board {
+  color: #777a92;
+}
+
+body.sun .todo-app .info .list .control-board .control-button span:hover {
+  color: #161722;
+}
+
+body.sun .todo-app .info .list .control-board .clear-completed:hover {
+  color: #161722;
+}
+
+body.sun .todo-app .theme {
+  content: url("../imgs/icon-sun.svg");
+}
+
+.container {
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/*Start To Do App*/
+.todo-app {
+  position: relative;
+  background-image: url("../imgs/bg-desktop-dark.jpg");
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.todo-app .app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 80px;
+}
+
+.todo-app .app .info {
+  text-align: center;
+}
+
+.todo-app .app .info .head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.todo-app .app .info .head h1 {
+  margin: 0;
+  letter-spacing: 20px;
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .head h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .head h1 {
+    font-size: 3rem;
+  }
+}
+
+.todo-app .app .info .head .theme {
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .head .theme {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .head .theme {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info {
+    width: 355px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info {
+    width: 540px;
+  }
+}
+
+.todo-app .app .info .input {
+  width: 100%;
+  height: 65px;
+  background-color: #25273c;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.todo-app .app .info .input div {
+  position: relative;
+  width: 70px;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.todo-app .app .info .input div span {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  border: 1px solid #393a4c;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .input div span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .input div span {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.todo-app .app .info .input div span:hover {
+  background-image: url("../imgs/icon-check.svg"), -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background-image: url("../imgs/icon-check.svg"), linear-gradient(to right bottom, #57ddff, #c058f3);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.todo-app .app .info .input input {
+  width: calc(100% - 70px);
+  height: 100%;
+  float: right;
+  border: none;
+  outline: none;
+  background-color: #25273c;
+  color: #e4e5f1;
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .input input {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .input input {
+    font-size: 18px;
+  }
+}
+
+.todo-app .app .info .list {
+  background-color: #25273c;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.todo-app .app .info .list .list-div {
+  position: relative;
+  height: 65px;
+  border-bottom: 1px solid #393a4c;
+  line-height: 65px;
+  text-align: start;
+  padding-left: 70px;
+  letter-spacing: 1px;
+  -webkit-animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  cursor: move;
+}
+
+@-webkit-keyframes scale-in-ver-bottom {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-ver-bottom {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+
+.todo-app .app .info .list .list-div.dragging {
+  opacity: 0.5;
+}
+
+.todo-app .app .info .list .list-div.complete {
+  text-decoration: line-through;
+  color: #777a92;
+}
+
+.todo-app .app .info .list .list-div .span-check {
+  position: absolute;
+  top: 30%;
+  left: 25px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #393a4c;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.todo-app .app .info .list .list-div .span-check.show {
+  background-image: url("../imgs/icon-check.svg"), -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background-image: url("../imgs/icon-check.svg"), linear-gradient(to right bottom, #57ddff, #c058f3);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.todo-app .app .info .list .list-div .x-button {
+  position: absolute;
+  top: 23.5px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.todo-app .app .info .list .list-div:hover .x-button {
+  display: block;
+}
+
+.todo-app .app .info .list .control-board {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todo-app .app .info .list .control-board div {
+  line-height: 50px;
+  color: #777a92;
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .list .control-board div {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .list .control-board div {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .list .control-board .count-items {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .list .control-board .count-items {
+    margin-left: 25px;
+  }
+}
+
+.todo-app .app .info .list .control-board .control-button span {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.todo-app .app .info .list .control-board .control-button span:hover {
+  color: white;
+}
+
+.todo-app .app .info .list .control-board .clear-completed {
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .todo-app .app .info .list .control-board .clear-completed {
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .todo-app .app .info .list .control-board .clear-completed {
+    margin-right: 25px;
+  }
+}
+
+.todo-app .app .info .list .control-board .clear-completed:hover {
+  color: white;
+}
+
+.footer {
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 562px;
+}
+
+.footer span {
+  color: #3a7bfd;
+}
+
+/*End To Do App*/
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-App</title>
+    <link rel="icon" href="./imgs/favicon-32x32.png">
+    <link rel="stylesheet" href="./sass/style.css">
+    <link rel="stylesheet" href="./sass/normalize.css">
+    <link rel="stylesheet" href="./sass/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="todo-app">
+        <div class="container">
+            <div class="app">
+                <div class="info">
+                    <div class="head">
+                        <h1>TODO</h1>
+                        <img class="theme" src="./imgs/icon-moon.svg" alt="">
+                    </div>
+                    <div class="input">
+                        <div><span class="add"></span></div>
+                        <input class="write-active" type="text" placeholder="Create a new todo...">
+                    </div>
+                    <div class="list">
+                        <div class="tasks"></div>
+                        <div class="control-board">
+                            <div class="count-items"><span>0</span> items left</div>
+                            <div class="control-button">
+                                <span class="all">All</span>
+                                <span class="discompleted">Active</span>
+                                <span class="completed">Completed</span>
+                            </div>
+                            <div class="clear-completed">Clear Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div>Designed by <span>Ahmed Magdy</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
