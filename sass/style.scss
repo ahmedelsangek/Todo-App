@@ -224,9 +224,6 @@ body {
             }
           }
           cursor: pointer;
-          &.dragging {
-            opacity: 0.5;
-          }
           &.complete {
             text-decoration: line-through;
             color: $DarkGrayishBlue;

@@ -303,10 +303,6 @@ body.sun .todo-app .theme {
   }
 }
 
-.todo-app .app .info .list .list-div.dragging {
-  opacity: 0.5;
-}
-
 .todo-app .app .info .list .list-div.complete {
   text-decoration: line-through;
   color: #777a92;

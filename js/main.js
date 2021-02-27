@@ -10,29 +10,30 @@ AllControlButtons.forEach(btn => {
     btn.addEventListener("click", () => {
         AllControlButtons.forEach(btn => {
             btn.style.color = "#777a92";
-        })
+        });
         btn.style.color = "#0a58f5";
-    })
-})
+    });
+});
 
 /*---------------------------Start To Do App--------------------------*/
-let addList = document.querySelector(".todo-app .input .add");
 let wordInput = document.querySelector(".todo-app .input .write-active");
-let tasksArea = document.querySelector(".todo-app .info .list .tasks"); //-----------new
+let tasksArea = document.querySelector(".todo-app .info .list .tasks");
 let countItems = document.querySelector(".todo-app .list .count-items span");
-localStoragekeysArray = Array.from(Object.keys(localStorage));
+let items = [];
+if (JSON.parse(localStorage.getItem("task"))) {
+    items = JSON.parse(localStorage.getItem("task"));
+};
 window.onload = () => {
     wordInput.focus();
-}
-
-//Create 1 list to do when click on button add
-addList.addEventListener("click", () => {
-    if (wordInput.value != "") {
+};
+//Create Task when click on Enter Key
+wordInput.addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {
+        if (wordInput.value != "") {
         // Craete list
         let listDiv = document.createElement("div");
         listDiv.className = "list-div";
         listDiv.classList.add("all");
-        listDiv.setAttribute("draggable", "true");
         listDiv.innerHTML = wordInput.value;
 
         //Create Span Check List
@@ -52,30 +53,30 @@ addList.addEventListener("click", () => {
         countItems.innerHTML = tasksArea.children.length;
 
         //Set Item To Local Storage include aboute Input Value
-        localStorage.setItem(wordInput.value, wordInput.value);
+        items.push(wordInput.value);
+        localStorage.setItem("task", JSON.stringify(items));
 
         // Delete List When I Click On X-Button
         xButton.addEventListener("click", function (e) {
             listDiv.remove();
             countItems.innerHTML = tasksArea.children.length;
-            //Remove Item from Local storage
-            localStorage.removeItem(`${e.target.parentElement.innerText}`);
+            items.splice(items.indexOf(listDiv.innerText),1);
+            localStorage.setItem("task", JSON.stringify(items));
+            localStorage.removeItem(listDiv.innerText);
         });
 
         //put line throught in list
-        spanCheck.onclick = function () {
-            this.classList.toggle("show");
+        spanCheck.addEventListener("click", () => {
+            spanCheck.classList.toggle("show");
             listDiv.classList.toggle("complete");
             if (listDiv.classList.contains("complete")) {
-                listDiv.setAttribute("data-completed" , "completed");
                 //Change Item Value in Local Storage To Change it style
-                localStorage.setItem(listDiv.innerText, "decore");
+                localStorage.setItem(`${listDiv.innerText}`, "decore");
             } else {
-                localStorage.setItem(listDiv.innerText, listDiv.innerText);
                 //Change Item Value in Local Storage To Change it style
-                listDiv.setAttribute("data-completed" , "");
+                localStorage.setItem(`${listDiv.innerText}`, "");
             }
-        }
+        })
 
         let allButton = document.querySelector(".todo-app .control-button .all");
         allButton.addEventListener("click", () => {
@@ -85,7 +86,7 @@ addList.addEventListener("click", () => {
         //Show only actived list when user click on Active button
         let disCompletedButton = document.querySelector(".discompleted");
         disCompletedButton.addEventListener("click", () => {
-            if (listDiv.dataset.completed == "completed") {
+            if (listDiv.classList.contains("complete")) {
                 listDiv.style.display = "none";
             } else {
                 listDiv.style.display = "block";
@@ -95,39 +96,31 @@ addList.addEventListener("click", () => {
         //Show only completed list when user click on completed button
         let completedButton = document.querySelector(".completed");
         completedButton.addEventListener("click", () => {
-            if (listDiv.dataset.completed == "completed") {
+            if (listDiv.classList.contains("complete")) {
                 listDiv.style.display = "block";
             } else {
                 listDiv.style.display = "none";
             }
         })
 
-        // clear completed list when user click on clear complete button
-        let clearButton = document.querySelector(".clear-completed");
-        clearButton.addEventListener("click", () => {
-            if (listDiv.classList.contains("complete")) {
-                listDiv.remove();
-                countItems.innerHTML = tasksArea.children.length;
-                localStorage.removeItem(`${listDiv.innerText}`);
-            }
-        });
-
         wordInput.value = "";
         wordInput.focus();
-    } else {
-        console.log("input empty")
-    }
+        } else {
+            console.log()
+        }
+        clearCompleted();
+    };
 });
 /*--------------------------- End To Do App --------------------------*/
 
 /*--------------------------- Start Local Storage --------------------*/
 if (localStorage.length > 0) {
-    for (let i = 0; i < localStoragekeysArray.length; i++) {
+    for (let i = 0; i < JSON.parse(localStorage.getItem("task")).length; i++) {
         // Craete list
         let listDiv = document.createElement("div");
         listDiv.className = "list-div";
         listDiv.classList.add("all");
-        listDiv.innerHTML = localStoragekeysArray[i];
+        listDiv.innerHTML = JSON.parse(localStorage.getItem("task"))[i];
 
         //Create Span Check List
         let spanCheck = document.createElement("span");
@@ -150,21 +143,21 @@ if (localStorage.length > 0) {
             listDiv.remove();
             countItems.innerHTML = tasksArea.children.length;
             //Remove Item From Local Storage
-            localStorage.removeItem(`${e.target.parentElement.innerText}`);
+            items.splice(items.indexOf(listDiv.innerText),1);
+            localStorage.setItem("task", JSON.stringify(items));
+            localStorage.removeItem(listDiv.innerText);
         });
 
         //put line throught in list
-        spanCheck.onclick = function () {
+        spanCheck.onclick = function (e) {
             this.classList.toggle("show");
             listDiv.classList.toggle("complete");
             if (listDiv.classList.contains("complete")) {
-                listDiv.setAttribute("data-completed" , "completed");
                 //Change Item Value in Local Storage To Change it style
                 localStorage.setItem(listDiv.innerText, "decore");
             } else {
-                listDiv.setAttribute("data-completed" , "");
                 //Change Item Value in Local Storage To Change it style
-                localStorage.setItem(listDiv.innerText, listDiv.innerText);
+                localStorage.setItem(listDiv.innerText, "");
             };
         };
 
@@ -182,7 +175,7 @@ if (localStorage.length > 0) {
         //Show only actived list when user click on Active button
         let disCompletedButton = document.querySelector(".discompleted");
         disCompletedButton.addEventListener("click", () => {
-            if (listDiv.dataset.completed == "completed") {
+            if (listDiv.classList.contains("complete")) {
                 listDiv.style.display = "none";
             } else {
                 listDiv.style.display = "block";
@@ -192,22 +185,30 @@ if (localStorage.length > 0) {
         //Show only completed list when user click on completed button
         let completedButton = document.querySelector(".completed");
         completedButton.addEventListener("click", () => {
-            if (listDiv.dataset.completed == "completed") {
+            if (listDiv.classList.contains("complete")) {
                 listDiv.style.display = "block";
             } else {
                 listDiv.style.display = "none";
             };
         })
 
-        // clear completed list when user click on clear complete button
-        let clearButton = document.querySelector(".clear-completed");
-        clearButton.addEventListener("click", () => {
-            if (listDiv.classList.contains("complete")) {
-                listDiv.remove();
-                localStorage.removeItem(`${listDiv.innerText}`);
-                countItems.innerHTML = tasksArea.children.length;
-            };
-        });
+        clearCompleted();
     };
 };
 /*--------------------------- End Local Storage --------------------*/
+
+//Clear all tasks completed Function
+function clearCompleted() {
+let clearButton = document.querySelector(".clear-completed");
+clearButton.addEventListener("click", (e) => {
+    tasksArea.childNodes.forEach(child => {
+        if (child.classList.contains("complete")) {
+            child.remove();
+            countItems.innerHTML = tasksArea.children.length;
+            items.splice(items.indexOf(`${child.textContent}`),1);
+            localStorage.setItem("task", JSON.stringify(items));
+            localStorage.removeItem(`${child.textContent}`);
+        };
+    });
+});
+};
