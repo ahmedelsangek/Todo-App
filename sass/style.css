@@ -1,6 +1,6 @@
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -9,7 +9,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#57ddff),
+    to(#c058f3)
+  );
   background-image: linear-gradient(to right bottom, #57ddff, #c058f3);
 }
 
@@ -113,11 +119,11 @@ body.sun .todo-app .theme {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding-top: 80px;
 }
 
@@ -130,8 +136,8 @@ body.sun .todo-app .theme {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-bottom: 50px;
 }
 
@@ -222,8 +228,10 @@ body.sun .todo-app .theme {
 }
 
 .todo-app .app .info .input div span:hover {
-  background-image: url("../imgs/icon-check.svg"), -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
-  background-image: url("../imgs/icon-check.svg"), linear-gradient(to right bottom, #57ddff, #c058f3);
+  background-image: url("../imgs/icon-check.svg"),
+    -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background-image: url("../imgs/icon-check.svg"),
+    linear-gradient(to right bottom, #57ddff, #c058f3);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -264,7 +272,8 @@ body.sun .todo-app .theme {
   text-align: start;
   padding-left: 70px;
   letter-spacing: 1px;
-  -webkit-animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  -webkit-animation: scale-in-ver-bottom 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   cursor: pointer;
 }
@@ -321,8 +330,10 @@ body.sun .todo-app .theme {
 }
 
 .todo-app .app .info .list .list-div .span-check.show {
-  background-image: url("../imgs/icon-check.svg"), -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
-  background-image: url("../imgs/icon-check.svg"), linear-gradient(to right bottom, #57ddff, #c058f3);
+  background-image: url("../imgs/icon-check.svg"),
+    -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background-image: url("../imgs/icon-check.svg"),
+    linear-gradient(to right bottom, #57ddff, #c058f3);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -345,8 +356,8 @@ body.sun .todo-app .theme {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .todo-app .app .info .list .control-board div {
@@ -413,10 +424,6 @@ body.sun .todo-app .theme {
   text-align: center;
   padding: 15px 0;
   margin-top: 562px;
-}
-
-.footer span {
-  color: #3a7bfd;
 }
 
 /*End To Do App*/
